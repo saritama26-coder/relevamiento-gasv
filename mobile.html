@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#17365d">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -240,8 +240,82 @@
         }
 
         /* Evita que textos largos ensanchen la pantalla */
-        p, h1, h2, h3, h4, label, span, div {
-          overflow-wrap: anywhere;
+        p, h1, h2, h3, h4, label, span, div, td, th {
+          overflow-wrap: break-word;
+          word-break: normal;
+        }
+
+        button {
+          word-break: normal !important;
+          overflow-wrap: normal !important;
+          hyphens: none !important;
+          line-height: 1.2 !important;
+        }
+
+        /* Encabezado: logo + título arriba, botones en cuadrícula debajo */
+        [class~="sticky"][class~="top-0"][class~="z-50"] {
+          position: relative !important;
+          flex-direction: column !important;
+          align-items: stretch !important;
+          gap: 12px !important;
+          padding: 12px !important;
+        }
+
+        [class~="sticky"][class~="top-0"][class~="z-50"] > div:first-child {
+          min-width: 0 !important;
+        }
+
+        [class~="sticky"][class~="top-0"][class~="z-50"] > div:first-child {
+          flex-direction: column !important;
+          align-items: flex-start !important;
+          gap: 8px !important;
+        }
+
+        [class~="sticky"][class~="top-0"][class~="z-50"] > div:first-child > * {
+          margin-left: 0 !important;
+        }
+
+        [class~="sticky"][class~="top-0"][class~="z-50"] > div:first-child > div {
+          min-width: 0 !important;
+          border-left: 0 !important;
+          padding-left: 0 !important;
+        }
+
+        /* Mensajes de tabla vacía visibles al inicio de la fila */
+        td[colspan] {
+          white-space: normal !important;
+          text-align: left !important;
+        }
+
+        [class~="sticky"][class~="top-0"][class~="z-50"] h1 {
+          font-size: 16px !important;
+          line-height: 1.25 !important;
+          letter-spacing: .02em !important;
+        }
+
+        [class~="sticky"][class~="top-0"][class~="z-50"] > div:last-child {
+          display: grid !important;
+          grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+          gap: 8px !important;
+          width: 100% !important;
+        }
+
+        [class~="sticky"][class~="top-0"][class~="z-50"] > div:last-child > button {
+          width: 100% !important;
+          justify-content: center !important;
+          text-align: center !important;
+          padding: 8px 6px !important;
+        }
+
+        /* Filas título + acciones: se reacomodan en varias líneas */
+        [class~="justify-between"] {
+          flex-wrap: wrap !important;
+          row-gap: 8px !important;
+        }
+
+        div[class~="flex"][class~="gap-2"],
+        div[class~="flex"][class~="space-x-2"] {
+          flex-wrap: wrap !important;
         }
 
         @media (min-width: 520px) and (max-width: 767px) {
