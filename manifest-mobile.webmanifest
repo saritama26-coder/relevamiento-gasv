@@ -1,0 +1,12 @@
+{
+  "name": "Relevamiento Arquitectónico GASV",
+  "short_name": "Relevamiento GASV",
+  "description": "Versión móvil de Relevamiento Arquitectónico GASV.",
+  "lang": "es",
+  "start_url": "./mobile.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#17365d",
+  "background_color": "#f8fafc"
+}
